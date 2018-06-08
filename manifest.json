@@ -5,16 +5,16 @@
 	"description": "Gives free and better alternatives for apps on Internet",
 	"version": "1.0",
 	"icons": {
-		"64": "icons/f.jpg"
+		"64": "normalView/icons/f.jpg"
 	},
 	"background": {
-		"scripts": ["normalView.js"]
+		"scripts": ["normalView/normalView.js"]
 	},
 
 	"browser_action": {
-		"default_icon": "icons/f.jpg",
+		"default_icon": "normalView/icons/f.jpg",
 		"browser_style": true,
-		"default_popup":"popup/index.html"
+		"default_popup":"normalView/popup/index.html"
 	}
 
 }
