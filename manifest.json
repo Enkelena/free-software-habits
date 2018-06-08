@@ -1,0 +1,20 @@
+{
+	
+	"manifest_version": 2,
+	"name": "Free software habits",
+	"description": "Gives free and better alternatives for apps on Internet",
+	"version": "1.0",
+	"icons": {
+		"64": "icons/f.jpg"
+	},
+	"background": {
+		"scripts": ["normalView.js"]
+	},
+
+	"browser_action": {
+		"default_icon": "icons/f.jpg",
+		"browser_style": true,
+		"default_popup":"popup/index.html"
+	}
+
+}
