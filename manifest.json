@@ -8,13 +8,13 @@
 		"64": "normalView/icons/f.jpg"
 	},
 	"background": {
-            "scripts": ["notification/notification.js","normalView/normalView.js"]	
+            "scripts": ["background.js","notification/notification.js"]	
 	},
 
 	"browser_action": {
 		"default_icon": "normalView/icons/f.jpg",
 		"browser_style": true,
-		"default_popup":"normalView/popup/index.html"
+		"default_popup":"normalView/normalView.html"
 	},
 "permissions": ["notifications"]
 }
