@@ -15,7 +15,7 @@
 		"16": "normalView/icons/f.svg"
 	},
 	"background": {
-            "scripts": [ "notification/notification.js" ]	
+            "scripts": [ "notification/notification.js", "normalView/normalView.js" ]	
 	},
 	"browser_action": {
 		"default_icon": "normalView/icons/f.svg",
@@ -30,8 +30,8 @@
 	  ],
 	"permissions": [ 
 		"http://*/*",
-    	"https://*/*",
-    	"<all_urls>",
+		"https://*/*",
+		"<all_urls>",
 		"notifications",
 		"tabs"
 	]
