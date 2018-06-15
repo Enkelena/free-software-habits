@@ -5,7 +5,7 @@ browser.tabs.onUpdated.addListener(tabId => {
 
 function initialize(tabId) {
 
-		browser.browserAction.setIcon({
+	browser.browserAction.setIcon({
 		tabId: tabId,
 		path: "icons/f.jpg"
 	})
@@ -15,7 +15,5 @@ function initialize(tabId) {
 		title: "Free software habits"
 	})
 
-
 	browser.browserAction.show(tabId);
-	
 }

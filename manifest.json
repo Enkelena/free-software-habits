@@ -1,20 +1,38 @@
 {
-	
 	"manifest_version": 2,
 	"name": "Free software habits",
 	"description": "Gives free and better alternatives for apps on Internet",
 	"version": "1.0",
 	"icons": {
-		"64": "normalView/icons/f.jpg"
+		"512": "normalView/icons/f.svg",
+		"384": "normalView/icons/f.svg",
+		"256": "normalView/icons/f.svg",
+		"192": "normalView/icons/f.svg",
+		"144": "normalView/icons/f.svg",
+		"128": "normalView/icons/f.svg",
+		"96": "normalView/icons/f.svg",
+		"48": "normalView/icons/f.svg",
+		"16": "normalView/icons/f.svg"
 	},
 	"background": {
-            "scripts": ["notification/notification.js","normalView/normalView.js"]	
+            "scripts": [ "notification/notification.js" ]	
 	},
-
 	"browser_action": {
-		"default_icon": "normalView/icons/f.jpg",
+		"default_icon": "normalView/icons/f.svg",
 		"browser_style": true,
-		"default_popup":"normalView/popup/index.html"
+		"default_popup":"normalView/index.html"
 	},
-"permissions": ["notifications"]
+	"content_scripts": [
+		{
+		  "matches": ["<all_urls>"],
+		  "js": ["scripts/getCurrentURL.js"]
+		}
+	  ],
+	"permissions": [ 
+		"http://*/*",
+    	"https://*/*",
+    	"<all_urls>",
+		"notifications",
+		"tabs"
+	]
 }
