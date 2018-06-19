@@ -14,13 +14,15 @@
 		"48": "normalView/icons/f.svg",
 		"16": "normalView/icons/f.svg"
 	},
+	
 	"background": {
-            "scripts": [ "notification/notification.js", "normalView/normalView.js" ]	
+            "scripts": [ "notification/notification.js", "normalView/normalView.js","scripts/background.js","notification/notification.js"]	
 	},
 	"browser_action": {
 		"default_icon": "normalView/icons/f.svg",
 		"browser_style": true,
-		"default_popup":"normalView/index.html"
+		"default_popup":"normalView/normalView.html"
+		
 	},
 	"content_scripts": [
 		{

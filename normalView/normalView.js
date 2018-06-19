@@ -1,8 +1,5 @@
-// add listener to browser tab update
-browser.tabs.onUpdated.addListener(tabId => {
-	initialize(tabId);
-});
 
+<<<<<<< HEAD
 function initialize(tabId) {
 
 	browser.browserAction.setIcon({
@@ -17,3 +14,5 @@ function initialize(tabId) {
 
 	browser.browserAction.show(tabId);
 }
+=======
+>>>>>>> normal-view-edit
