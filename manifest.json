@@ -1,5 +1,4 @@
 {
-	
 	"manifest_version": 2,
 	"name": "Free software habits",
 	"description": "Gives free and better alternatives for apps on Internet",
@@ -17,12 +16,10 @@
 	},
 	
 	"background": {
-		"scripts": ["scripts/background.js","notification/notification.js"]
-
+            "scripts": [ "notification/notification.js", "normalView/normalView.js","scripts/background.js","notification/notification.js"]	
 	},
-
 	"browser_action": {
-		"default_icon": "normalView/icons/f.jpg",
+		"default_icon": "normalView/icons/f.svg",
 		"browser_style": true,
 		"default_popup":"normalView/normalView.html"
 		
@@ -39,6 +36,5 @@
 		"<all_urls>",
 		"notifications",
 		"tabs"
-]
-	
+	]
 }
