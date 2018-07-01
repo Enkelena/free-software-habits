@@ -3,7 +3,7 @@
         if(tabs[0].url) {
             handleMessage(tab[0].url);
         }
-    }
+     }
     function onError(err){
         showNotification(null);
     }
@@ -182,10 +182,7 @@ const alternativeApps = {
               "url":"https://www.gimp.org/"
            }
         ]
-     },
-
-
-
+     }
 
  
     ]
