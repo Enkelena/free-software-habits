@@ -1,3 +1,4 @@
+
 const alternativeApps = {
 
     "softwaresList":[
@@ -131,4 +132,3 @@ const alternativeApps = {
 
 
  browser.storage.local.set(alternativeApps);
- const getData = browser.storage.local.get('softwaresList');
