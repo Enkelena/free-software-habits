@@ -55,3 +55,5 @@ function showNotification(currentURL, betterAlternative) {
         "message": message
     }); 
 }
+
+const getData = browser.storage.local.get('softwaresList');
