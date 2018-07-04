@@ -1,4 +1,28 @@
-﻿﻿function updateCurrentUrl() {
+﻿﻿
+//gets software list from const variable declared in data.js
+let alternativeApps = localSoftwareList['softwareList'];
+
+//gets software list from server (github)
+fetch('https://raw.githubusercontent.com/bfmags/gsoc-project/master/alternativeApps.json')
+  .then( response => response.json() )
+  .then(function(remoteSoftwareList) {
+    const localListDate = new Date(localSoftwareList.modified);
+    const remoteListDate = new Date(remoteSoftwareList.modified);
+    //if modified date is newer, it uses the list from server
+    if (localListDate < remoteListDate) {
+        alternativeApps = remoteSoftwareList['softwareList'];
+    }
+  });
+
+fetch('http://example.com/movies.json')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(myJson);
+  });
+
+function updateCurrentUrl() {
     function logTabs(tabs) {
         if(tab[0].url) {
             handleMessage(tabs[0].url);
@@ -15,14 +39,13 @@ browser.tabs.onActivated.addListener(updateCurrentUrl);
 const service = browser.runtime.connect({name:"updateWindowURL"});
 
 function findBetterAlternative(currentUrl) {
-    console.log('AlternativeJS: ', alternativeApps)
-    let betterAlternative
-    alternativeApps.softwaresList.forEach((next, key) => {
-        if(next.url[0] == currentUrl) {
+    let betterAlternative = null;
+    alternativeApps.forEach((next, key) => {
+        if(next.url[0] === currentUrl) {
             betterAlternative = next.alternatives[0].url
         }
     })
-    return betterAlternative
+    return betterAlternative;
 }
 
 function handleMessage(request) {
@@ -37,14 +60,15 @@ function handleMessage(request) {
 browser.runtime.onConnect.addListener( m => m.onMessage.addListener(handleMessage));
 
 function showNotification(currentURL, betterAlternative) {
-    console.log('Better Alternative ', betterAlternative)
-    if (null) return;
-    const url = currentURL || 'www.default.com';
-    const alternativeURL = betterAlternative || 'www.default.com'
+
+    //we shouldn't show notification for settings page and empty pages
+    //if it doesn't find an alternative return
+    if (currentURL === 'about') return;
+    if (!betterAlternative || !currentURL) return;
 
     //may need to change, when different software lives under same domain
-    const currentDomain = url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
-    const alternativeDomain = alternativeURL.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
+    const currentDomain = currentURL.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
+    const alternativeDomain = betterAlternative.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
 
     const message = `You are on: ${currentDomain} for better alternative use: ${alternativeDomain}`;
 
@@ -55,5 +79,3 @@ function showNotification(currentURL, betterAlternative) {
         "message": message
     }); 
 }
-
-const getData = browser.storage.local.get('softwaresList');

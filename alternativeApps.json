@@ -1,6 +1,5 @@
-const localSoftwareList = 
 {
-    "modified":"2018-07-02",
+    "modified":"2018-07-04",
     "softwareList":[
        {
           "name":"hangouts",
