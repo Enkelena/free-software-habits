@@ -14,14 +14,6 @@ fetch('https://raw.githubusercontent.com/bfmags/gsoc-project/master/alternativeA
     }
   });
 
-fetch('http://example.com/movies.json')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(myJson) {
-    console.log(myJson);
-  });
-
 function updateCurrentUrl() {
     function logTabs(tabs) {
         if(tab[0].url) {
