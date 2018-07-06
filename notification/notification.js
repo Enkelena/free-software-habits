@@ -3,7 +3,7 @@
 let alternativeApps = localSoftwareList['softwareList'];
 
 //gets software list from server (github)
-fetch('https://raw.githubusercontent.com/bfmags/gsoc-project/master/alternativeApps.json')
+fetch('https://cdn.rawgit.com/Enkelena/gsoc-project/master/alternativeApps.json')
   .then( response => response.json() )
   .then(function(remoteSoftwareList) {
     const localListDate = new Date(localSoftwareList.modified);
