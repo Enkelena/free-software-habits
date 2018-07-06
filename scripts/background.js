@@ -14,8 +14,5 @@ function initialize(tabId) {
 		tabId: tabId,
 		title: "Free software habits"
 	})
-
-
-	browser.browserAction.show(tabId);
 	
 }
