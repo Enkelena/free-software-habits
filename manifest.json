@@ -16,7 +16,7 @@
 	},
 	
 	"background": {
-            "scripts": ["normalView/normalView.js","notification/data.js","notification/notification.js", "scripts/background.js"]	
+            "scripts": ["notification/data.js","normalView/normalView.js","notification/notification.js", "scripts/background.js"]	
 	},
 	"browser_action": {
 		"default_icon": "normalView/icons/f.svg",

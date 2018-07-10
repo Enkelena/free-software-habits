@@ -54,13 +54,15 @@ function onError(){
     showNotification(null);
 }
 
-
 // if the notifications are not paused 
- if( count==1) { 
+ if ( notification === "on")   { 
+    
     browser.runtime.onConnect.addListener( m => m.onMessage.addListener(handleMessage)); 
 }
+
 // if the notifications are stoped
-else {
+else if (notification === "off"){
+  
     onError();
 }
 

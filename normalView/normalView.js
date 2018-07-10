@@ -1,24 +1,34 @@
-var button = document.getElementById("button1");
+let button = document.getElementById("button1");
+let notification="on";
+
+localStorage.getItem("notification",notification);
 
 
-var count = 1;
 
-
-button.addEventListener("click",function() { 
-
-    localStorage.getItem("count",count)
+//localStorage.setItem("count",count);
+button.onclick= function() { 
     // var property = document.getElementById("button");
      // if paused start
-    if (count == 1) {
-         // property.style.backgroundColor = "#a84237"
-        button.innerHTML = "Start";
-        count=0;
-    }
+
+
+      if (notification === "on") {
+              notification="off";   
+              button.innerHTML = "Start";
+   
+       }
     
-    else {
+
+   else if (notification === "off") {
          //  property.style.backgroundColor = "#fff"
-        button.innerHTML = "Pause";
-        count=1;
-    }    
-    localStorage.setItem("count",count)
-});
+         
+             notification="on";
+            button.innerHTML = "Pause";
+
+   } 
+
+localStorage.setItem("notification",notification);
+};
+
+
+
+
