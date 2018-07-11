@@ -1,6 +1,6 @@
 const localSoftwareList = 
 {
-    "modified":"2018-07-02",
+    "modified":"2018-07-07",
     "softwareList":[
        {
           "name":"hangouts",
@@ -29,7 +29,7 @@ const localSoftwareList =
        {
           "name":"freedcamp",
           "url":[
-             "https://freedcamp.com"
+             "https://freedcamp.com/"
           ],
           "alternatives":[
              {
@@ -41,7 +41,8 @@ const localSoftwareList =
        {
           "name":"github",
           "url":[
-             "https://github.com/"
+             "https://github.com/",
+            
           ],
           "alternatives":[
              {

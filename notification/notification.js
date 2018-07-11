@@ -16,7 +16,7 @@ fetch('https://cdn.rawgit.com/Enkelena/gsoc-project/master/alternativeApps.json'
 
 function updateCurrentUrl() {
     function logTabs(tabs) {
-        if(tab[0].url) {
+        if(tabs[0].url) {
             handleMessage(tabs[0].url);
         }
      }
@@ -41,6 +41,10 @@ function findBetterAlternative(currentUrl) {
 }
 
 function handleMessage(request) {
+
+    //if notifications are paused don't show: return
+    if (localStorage.getItem("notification") === "off") return;
+
     currentUrl = request.currentWindowURL;
     let betterAlternative = findBetterAlternative(currentUrl);
 
@@ -49,7 +53,6 @@ function handleMessage(request) {
     // TODO function to update results page
     showNotification(currentUrl, betterAlternative);
 }
-browser.runtime.onConnect.addListener( m => m.onMessage.addListener(handleMessage));
 
 function showNotification(currentURL, betterAlternative) {
 
@@ -71,3 +74,7 @@ function showNotification(currentURL, betterAlternative) {
         "message": message
     }); 
 }
+
+
+browser.runtime.onConnect.addListener( m => m.onMessage.addListener(handleMessage)); 
+
