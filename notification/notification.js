@@ -40,30 +40,50 @@ function findBetterAlternative(currentUrl) {
     return betterAlternative;
 }
 
-function handleMessage(request) {
+//-----------------------------------------------------
+function onlyOnce() { 
+   
+    alternativeApps.forEach((next) => {
+                
+    if(next.url[0] === currentUrl) {
+        
+       sessionStorage.setItem("currentUrl",currentUrl);
+        }   
+               
+})
+}
 
+
+function handleMessage(request) {
     //if notifications are paused don't show: return
     if (localStorage.getItem("notification") === "off") return;
-
+    
     currentUrl = request.currentWindowURL;
     let betterAlternative = findBetterAlternative(currentUrl);
+
+    onlyOnce();
+       if(sessionStorage.getItem("currentUrl") === currentUrl)  return;
 
     //if currentURL === same domain, don't show
     //if currentURL === null, don't show
     // TODO function to update results page
-    showNotification(currentUrl, betterAlternative);
+   showNotification(currentUrl,betterAlternative) 
 }
+//---------------------------------------------------
 
 function showNotification(currentURL, betterAlternative) {
-
+     
     //we shouldn't show notification for settings page and empty pages
     //if it doesn't find an alternative return
     if (currentURL === 'about') return;
     if (!betterAlternative || !currentURL) return;
+   // if (sessionStorage.getItem("currentUrl") === alternativeDomain) return; 
+  
 
     //may need to change, when different software lives under same domain
     const currentDomain = currentURL.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
     const alternativeDomain = betterAlternative.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
+
 
     const message = `You are on: ${currentDomain} for better alternative use: ${alternativeDomain}`;
 
@@ -73,6 +93,8 @@ function showNotification(currentURL, betterAlternative) {
         "title": "Free software habits",
         "message": message
     }); 
+
+
 }
 
 
