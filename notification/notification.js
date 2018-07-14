@@ -32,14 +32,7 @@ const service = browser.runtime.connect({name:"updateWindowURL"});
 
 function findBetterAlternative(currentUrl) {
     let betterAlternative = null;
-    alternativeApps.forEach((next, key) => {
-
-        //for DEBUG: try out the code, use debug console,
-        //and delete this if block when ready to merge
-        if(next.shown && next.url[0] === currentUrl) {
-            console.log('it has been shown!');
-        }
-        //-----
+    alternativeApps.forEach((next) => {
 
         //test if the notification has been shown for that specific entry
         //* the list of software is loaded everytime we start the browser
@@ -67,14 +60,12 @@ function handleMessage(request) {
         showNotification(currentUrl,betterAlternative) 
     }
 }
-//---------------------------------------------------
 
 function showNotification(currentURL, betterAlternative) {
     //we shouldn't show notification for settings page and empty pages
     //if it doesn't find an alternative return
     if (currentURL === 'about') return;
     if (!betterAlternative || !currentURL) return;
-    // if (sessionStorage.getItem("currentUrl") === alternativeDomain) return; 
   
     //may need to change, when different software lives under same domain
     const currentDomain = currentURL.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
