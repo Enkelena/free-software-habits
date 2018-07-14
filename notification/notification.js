@@ -33,57 +33,52 @@ const service = browser.runtime.connect({name:"updateWindowURL"});
 function findBetterAlternative(currentUrl) {
     let betterAlternative = null;
     alternativeApps.forEach((next, key) => {
-        if(next.url[0] === currentUrl) {
+
+        //for DEBUG: try out the code, use debug console,
+        //and delete this if block when ready to merge
+        if(next.shown && next.url[0] === currentUrl) {
+            console.log('it has been shown!');
+        }
+        //-----
+
+        //test if the notification has been shown for that specific entry
+        //* the list of software is loaded everytime we start the browser
+        //* and the items won't have the shown attribute set, we just set it dinamically during runtime
+        //* and when the browser restarts (new session) it gets cleared
+        //* so we won't have to maintain a separate list
+        if(!next.shown && next.url[0] === currentUrl) {
             betterAlternative = next.alternatives[0].url
+            next['shown'] = true;
         }
     })
     return betterAlternative;
 }
 
-//-----------------------------------------------------
-function onlyOnce() { 
-   
-    alternativeApps.forEach((next) => {
-                
-    if(next.url[0] === currentUrl) {
-        
-       sessionStorage.setItem("currentUrl",currentUrl);
-        }   
-               
-})
-}
-
-
 function handleMessage(request) {
     //if notifications are paused don't show: return
     if (localStorage.getItem("notification") === "off") return;
     
+    //get list of software alternatives
     currentUrl = request.currentWindowURL;
     let betterAlternative = findBetterAlternative(currentUrl);
 
-    onlyOnce();
-       if(sessionStorage.getItem("currentUrl") === currentUrl)  return;
-
-    //if currentURL === same domain, don't show
-    //if currentURL === null, don't show
-    // TODO function to update results page
-   showNotification(currentUrl,betterAlternative) 
+    //if an alternative is returned show
+    if (betterAlternative) {
+        showNotification(currentUrl,betterAlternative) 
+    }
 }
 //---------------------------------------------------
 
 function showNotification(currentURL, betterAlternative) {
-     
     //we shouldn't show notification for settings page and empty pages
     //if it doesn't find an alternative return
     if (currentURL === 'about') return;
     if (!betterAlternative || !currentURL) return;
-   // if (sessionStorage.getItem("currentUrl") === alternativeDomain) return; 
+    // if (sessionStorage.getItem("currentUrl") === alternativeDomain) return; 
   
-
     //may need to change, when different software lives under same domain
     const currentDomain = currentURL.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
     const alternativeDomain = betterAlternative.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
-
 
     const message = `You are on: ${currentDomain} for better alternative use: ${alternativeDomain}`;
 
@@ -93,8 +88,6 @@ function showNotification(currentURL, betterAlternative) {
         "title": "Free software habits",
         "message": message
     }); 
-
-
 }
 
 
