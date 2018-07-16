@@ -30,33 +30,17 @@ browser.tabs.onActivated.addListener(updateCurrentUrl);
 //service is loaded into the page (getCurrentURL.js)
 const service = browser.runtime.connect({name:"updateWindowURL"});
 
-function findBetterAlternative(currentUrl) {
-    let betterAlternative = null;
+function findBetterAlternatives(currentUrl) {
+    let betterAlternatives = null;
     alternativeApps.forEach((next) => {
-
         //test if the notification has been shown for that specific entry
-        //* the list of software is loaded everytime we start the browser
-        //* and the items won't have the shown attribute set, we just set it dinamically during runtime
-        //* and when the browser restarts (new session) it gets cleared
-        //* so we won't have to maintain a separate list
         if(!next.shown && next.url[0] === currentUrl) {
-            betterAlternative = next.alternatives[0].url
+            betterAlternatives = next
             next['shown'] = true;
         }
     })
-    return betterAlternative;
+    return betterAlternatives;
 }
-
-function findSecondAlternative() {
-    let secondAlternative = null;
-    alternativeApps.forEach((next) => {
-
-    if(next.url[0] === currentUrl) { 
-      secondAlternative = next.alternatives[1].url
-    }
-    })
-    return secondAlternative;
-    }
 
 function handleMessage(request) {
     //if notifications are paused don't show: return
@@ -64,36 +48,50 @@ function handleMessage(request) {
     
     //get list of software alternatives
     currentUrl = request.currentWindowURL;
-    let betterAlternative = findBetterAlternative(currentUrl);
-    let secondAlternative = findSecondAlternative();
-    //if an alternative is returned show
-    if (betterAlternative) {
-        showNotification(currentUrl,betterAlternative,secondAlternative) 
+    if (currentUrl) {
+        const betterAlternatives = findBetterAlternatives(currentUrl);
+        //if an alternative is returned show
+        if (betterAlternatives && betterAlternatives.alternatives){
+            if (betterAlternatives.alternatives.length > 1) {
+                showNotification(currentUrl,betterAlternatives);
+            }
+        }
     }
 }
 
-function showNotification(currentURL, betterAlternative,secondAlternative) {
+function showNotification(currentURL, betterAlternatives) {
     //we shouldn't show notification for settings page and empty pages
-    //if it doesn't find an alternative return
     if (currentURL === 'about') return;
-    if (!betterAlternative || !currentURL) return;
-  
-    //may need to change, when different software lives under same domain
-    const currentDomain = currentURL.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
-    const alternativeDomain = betterAlternative.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
-    const secondDomain = secondAlternative.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
 
+    //create message
+    let message = `${betterAlternatives.name} has Open Source alternatives,\n`;
+    if (betterAlternatives.alternatives[0] && betterAlternatives.alternatives[0].name) {
+        message = `${message}like ${betterAlternatives.alternatives[0].name}`;
+    }
+    if (betterAlternatives.alternatives[1] && betterAlternatives.alternatives[1].name) {
+        message = `${message} or ${betterAlternatives.alternatives[1].name}`;
+    }
+    message = `${message}. Click for more!`;
 
-    const message = `You are on: ${currentDomain} better alternatives: ${alternativeDomain}, ${secondDomain}`;
-
-    browser.notifications.create({
+    //using the id 'software-notification', therefore not creating endless notifications for the user
+    browser.notifications
+    .create('software-notification',
+    {
         "type":"basic",
         "iconUrl":"f.svg",
         "title": "Free software habits",
         "message": message
-    }); 
+    })
+    .then(id => id);
+
+    //when the user clicks the notification, should open a page with list of software
+    //https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/notifications/onClicked
+    browser.notifications.onClicked.addListener(() => {
+        browser.notifications.clear('software-notification');
+        //open tab with project page
+        browser.tabs.create({url: 'https://opensource.org'});
+    });
 }
 
-
-browser.runtime.onConnect.addListener( m => m.onMessage.addListener(handleMessage)); 
+browser.runtime.onConnect.addListener(m => m.onMessage.addListener(handleMessage)); 
 
