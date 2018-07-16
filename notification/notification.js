@@ -20,7 +20,7 @@ function updateCurrentUrl() {
             handleMessage(tabs[0].url);
         }
      }
-    function onError(err){
+    function onError(){
         showNotification(null);
     }
     browser.tabs.query({currentWindow: true, active: true}).then(logTabs, onError);
@@ -47,6 +47,17 @@ function findBetterAlternative(currentUrl) {
     return betterAlternative;
 }
 
+function findSecondAlternative() {
+    let secondAlternative = null;
+    alternativeApps.forEach((next) => {
+
+    if(next.url[0] === currentUrl) { 
+      secondAlternative = next.alternatives[1].url
+    }
+    })
+    return secondAlternative;
+    }
+
 function handleMessage(request) {
     //if notifications are paused don't show: return
     if (localStorage.getItem("notification") === "off") return;
@@ -54,14 +65,14 @@ function handleMessage(request) {
     //get list of software alternatives
     currentUrl = request.currentWindowURL;
     let betterAlternative = findBetterAlternative(currentUrl);
-
+    let secondAlternative = findSecondAlternative();
     //if an alternative is returned show
     if (betterAlternative) {
-        showNotification(currentUrl,betterAlternative) 
+        showNotification(currentUrl,betterAlternative,secondAlternative) 
     }
 }
 
-function showNotification(currentURL, betterAlternative) {
+function showNotification(currentURL, betterAlternative,secondAlternative) {
     //we shouldn't show notification for settings page and empty pages
     //if it doesn't find an alternative return
     if (currentURL === 'about') return;
@@ -70,8 +81,10 @@ function showNotification(currentURL, betterAlternative) {
     //may need to change, when different software lives under same domain
     const currentDomain = currentURL.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
     const alternativeDomain = betterAlternative.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
+    const secondDomain = secondAlternative.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
 
-    const message = `You are on: ${currentDomain} for better alternative use: ${alternativeDomain}`;
+
+    const message = `You are on: ${currentDomain} better alternatives: ${alternativeDomain}, ${secondDomain}`;
 
     browser.notifications.create({
         "type":"basic",
