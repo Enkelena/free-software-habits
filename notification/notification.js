@@ -89,7 +89,7 @@ function showNotification(currentURL, betterAlternatives) {
     browser.notifications.onClicked.addListener(() => {
         browser.notifications.clear('software-notification');
         //open tab with project page
-        browser.tabs.create({url: 'https://opensource.org'});
+        browser.tabs.create({url: 'https://github.com/Enkelena/free-software-habits'});
     });
 }
 
