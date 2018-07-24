@@ -27,6 +27,6 @@ pauseButton.onclick = function(element) {
 };
 
 //open project webpage
-showMoreButton.onclick = function() {
-    window.open('https://opensource.org','_blank');
-}
+ showMoreButton.onclick = function() {
+    window.open('https://github.com/Enkelena/free-software-habits','_blank');
+} 
