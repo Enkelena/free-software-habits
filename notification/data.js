@@ -1,159 +1,24 @@
-const localSoftwareList = 
-{
-    "modified":"2018-07-07",
-    "softwareList":[
-       {
-          "name":"hangouts",
-          "url":[
-             "https://hangouts.google.com/"
-          ],
 
-          "alternatives":[
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             },
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             }
-          ]
-       },
-       {
-          "name":"Gmail",
-          "url":[
-             "https://mail.google.com/mail/u/0/#inbox"
-          ],
-
-          "alternatives":[
-             {
-                "name":"thunderbird",
-                "url":"https://www.thunderbird.net/en-US/"
-             },
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             }
-          ]
-       },
-       {
-          "name":"freedcamp",
-          "url":[
-             "https://freedcamp.com/"
-          ],
-
-          "alternatives":[
-             {
-                "name":"Kanboard",
-                "url":"https://kanboard.org/"
-             },
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             }
-          ]
-       },
-       {
-          "name":"github",
-          "url":[
-             "https://github.com/",
-          ],
-
-          "alternatives":[
-             {
-                "name":"salsa.debian",
-                "url":"https://salsa.debian.org/"
-             },
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             }
-          ]
-       },
-       {
-          "name":"trello",
-          "url":[
-             "https://trello.com/"
-          ],
-
-          "alternatives":[
-             {
-                "name":"Kanboard",
-                "url":"https://kanboard.org/"
-             },
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             }
-          ]
-       },
-       {
-          "name":"skype",
-          "url":[
-             "https://www.skype.com/en/"
-          ],
-
-          "alternatives":[
-             {
-                "name":"jitsi-meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             },
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             }
-          ]
-       },
-       {
-          "name":"google-drive",
-          "url":[
-             "https://www.google.com/drive/"
-          ],
-
-          "alternatives":[
-             {
-                "name":"seafile",
-                "url":"https://www.seafile.com/en/home/"
-             },
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             }
-          ]
-       },
-       {
-          "name":"dropbox",
-          "url":[
-             "https://www.dropbox.com/"
-          ],
-
-          "alternatives":[
-             {
-                "name":"seafile",
-                "url":"https://www.seafile.com/en/home/"
-             },
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             }
-          ]
-       },
-       {
-          "name":"photoshop",
-          "url":[
-             "https://www.photoshop.com/"
-          ],
-          
-          "alternatives":[
-             {
-                "name":"gimp",
-                "url":"https://www.gimp.org/"
-             },
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             }
-          ]
-       }
-    ]
+function generateApp(softwareList) {
+    html = ""
+    softwareList['softwareList'].forEach(element => {
+        html += "<div class='row'><div class='col-lg-3'><a href='" + element['url'][0] + "'>" + element['name'] + "</a> </div> ";
+        console.log(element['alternatives'].length);
+        element['alternatives'].forEach(alternative => {
+            html += "<div class='col-lg-2'><a href='" + alternative['url'] + "'>" + alternative['name'] + "</a></div>";
+        });
+        html += "</div> "
+        console.log(html)
+    });
+    let el=document.getElementById("apps");
+    el.innerHTML=html;
 }
+
+function generateBoth() {
+    generateApp();
+}
+
+//gets software list from server (github)
+fetch('https://cdn.rawgit.com/Enkelena/gsoc-project/master/alternativeApps.json')
+  .then( response => response.json() )
+  .then( softwareList => generateApp(softwareList));

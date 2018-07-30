@@ -1,17 +1,10 @@
-﻿﻿
-//gets software list from const variable declared in data.js
-let alternativeApps = localSoftwareList['softwareList'];
+﻿﻿let alternativeApps = null;
 
 //gets software list from server (github)
 fetch('https://cdn.rawgit.com/Enkelena/gsoc-project/master/alternativeApps.json')
   .then( response => response.json() )
   .then(function(remoteSoftwareList) {
-    const localListDate = new Date(localSoftwareList.modified);
-    const remoteListDate = new Date(remoteSoftwareList.modified);
-    //if modified date is newer, it uses the list from server
-    if (localListDate < remoteListDate) {
         alternativeApps = remoteSoftwareList['softwareList'];
-    }
   });
 
 function updateCurrentUrl() {
@@ -48,7 +41,7 @@ function handleMessage(request) {
     
     //get list of software alternatives
     currentUrl = request.currentWindowURL;
-    if (currentUrl) {
+    if (currentUrl && alternativeApps !== null) {
         const betterAlternatives = findBetterAlternatives(currentUrl);
         //if an alternative is returned show
         if (betterAlternatives && betterAlternatives.alternatives){
