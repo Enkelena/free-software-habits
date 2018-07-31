@@ -2,15 +2,16 @@
 function generateApp(softwareList) {
     html = ""
     softwareList['softwareList'].forEach(element => {
-        html += "<div class='row'><div class='col-lg-3'><a href='" + element['url'][0] + "'>" + element['name'] + "</a> </div> ";
-        console.log(element['alternatives'].length);
+
+        html += "<tr>";
+        html += "<td><a href='" + element['url'][0] + "'>" + element['name'] + "</a></td>";
+        html += "<td>"
         element['alternatives'].forEach(alternative => {
-            html += "<div class='col-lg-2'><a href='" + alternative['url'] + "'>" + alternative['name'] + "</a></div>";
+             html += "<a href='" + alternative['url'] + "'>" + alternative['name'] + "</a></br>";
         });
-        html += "</div> "
-        console.log(html)
+        html += "</td></tr>"
     });
-    let el=document.getElementById("apps");
+    let el=document.getElementById("tableBody");
     el.innerHTML=html;
 }
 

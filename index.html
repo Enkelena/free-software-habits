@@ -1,62 +1,76 @@
-<!Doctype html>
-    <head>
-                    <meta charset="utf-8"/>
-                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-                    <link rel="stylesheet" type="text/css" href="pageStyle.css">
-                </head>
-        <body onload="generateBoth()">
-            <div class="container">
-                <div class="row">
-                                
-                        <h1 class=" col-md-4"></h1>
-                    <h1 class="title col-md-4">Free Software Habits</h1>
-                    <h1 class=" col-md-4"></h1>
-                    <h1 class=" col-md-12"></h1>
-                </div>
-                    <div class="row"> 
-            <div  id="dataApps" class="dataApps col-md-8">
+<!DOCTYPE html>
+<html lang="en">
 
-                <div class='row'>
-                    <div class="col-lg-3"> 
-                        <h3>App</h3>
-                    </div>
-                    <div class="col-lg-9" id="alternatives">  
-                            <h3>Alternatives</h3>
-                        </div>
-                </div>
-                <div id="apps" class="apps">
-                    
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Landing Page - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="pageStyle.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Masthead -->
+    <header>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto container-logo">
+            <img src="pageIcons/fshLogo.png" class="logo">
+            <h1 class="mb-5 logo-text">Free Software Habits</h1>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto searchboxContainer">
+              <input type="text" class="form-control form-control-lg searchbox" placeholder="Search for alternative apps...">
+          </div>
+          <a class="btn btn-block btn-social btn-github">
+              <span class="fa fa-twitter"></span> View on Github
+            </a>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- Table -->
+    <section>
+        <div class="container text-center">
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto container-table">
+                <table class="table table-striped table-list">
+                  <thead>
+                    <tr>
+                        <th>List of Apps and alternatives</th>
+                        <th></th>
+                    </tr> 
+                  </thead>
+                  <tbody id="tableBody">
+                  </tbody>
+                </table>
             
-                </div>
-               
             </div>
-                <span class="spaceSpan col-md-1"></span>
-                <div class="col-md-3 sideBar">
-                        <div class="projectInformation">
-                                        <h3>Information</h3>
-                                        <p>l Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.ena</p>
-                                       
-                                    </div> 
-                                    <div class="projectInformation">
-                                        <h3>Information</h3>
-                                        <p>lena</p>
-                                        <p>lena</p>
-                                        <p>lena</p>
-                                    </div>
-                                    <div class="projectInformation">
-                                        <h3>Information</h3>
-                                        <p>lena</p>
-                                        <p>lena</p> 
-                                    </div>
-                                        <div class="projectInformation">
-                                            <h3>Information</h3>
-                                            <p>lena</p>
-                                            <p>lena</p>
-                                    </div>
-            </div>
-            <script src="notification/data.js"></script>
+        </div>
+    </section>
+  
+  
 
-            
-        </body>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+    <script src="notification/data.js"></script>
 
-    </html>
+  </body>
+
+</html>
