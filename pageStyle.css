@@ -5,6 +5,7 @@ html, body, .container-table {
 .logo {
     display: inline-block;
     width: 115px !important;
+    margin-left: -40px;
 }
 
 .logo-text {
@@ -23,11 +24,11 @@ html, body, .container-table {
 }
 
 .searchboxContainer {
-    margin-left: 10px;
+    margin-left: 115px;
 }
 
 .searchbox {
-    width: 900px;
+    width: 700px;
 }
 
 section {
@@ -36,4 +37,15 @@ section {
 
 td {
     text-align: left;
+}
+
+.container-github {
+    position: relative;
+    top: -40px;
+    left: 163px;
+}
+
+header {
+    background-color: aliceblue;
+    padding-bottom: 40px;
 }

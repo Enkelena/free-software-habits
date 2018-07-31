@@ -20,6 +20,6 @@ function generateBoth() {
 }
 
 //gets software list from server (github)
-fetch('https://cdn.rawgit.com/Enkelena/gsoc-project/master/alternativeApps.json')
+fetch('https://raw.githubusercontent.com/Enkelena/free-software-habits/master/alternativeApps.json')
   .then( response => response.json() )
   .then( softwareList => generateApp(softwareList));
