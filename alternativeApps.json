@@ -12,8 +12,16 @@
                 "url":"https://jitsi.org/jitsi-meet/"
              },
              {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
+                "name":"Pidgin",
+                "url":"https://alternativeto.net/software/pidgin/"
+             },
+             {
+                "name":"Riot.im",
+                "url":"https://about.riot.im/"
+             },
+             {
+                "name":"Wire",
+                "url":"https://wire.com/en/"
              }
           ]
        },
@@ -29,8 +37,16 @@
                 "url":"https://www.thunderbird.net/en-US/"
              },
              {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
+                "name":"Proton Mail",
+                "url":"https://protonmail.com/"
+             },
+             {
+                "name":"Tutanota",
+                "url":"https://tutanota.com/"
+             },
+             {
+                "name":"Horde",
+                "url":"https://www.horde.org/"
              }
           ]
        },
@@ -46,9 +62,18 @@
                 "url":"https://kanboard.org/"
              },
              {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
+                "name":"Taigo.io",
+                "url":"https://taiga.io/"
+             },
+             {
+                "name":"Open Project",
+                "url":"https://www.openproject.org/"
+             },
+             {
+                "name":"Loomio",
+                "url":"https://www.loomio.org/"
              }
+
           ]
        },
        {
@@ -63,9 +88,18 @@
                 "url":"https://salsa.debian.org/"
              },
              {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
+                "name":"Bitbucket",
+                "url":"https://bitbucket.org/"
+             },
+             {
+                "name":"Gogs",
+                "url":"https://gogs.io/"
+             },
+             {
+                "name":"GitLab",
+                "url":"https://about.gitlab.com/"
              }
+
           ]
        },
        {
@@ -75,15 +109,24 @@
           ],
 
           "alternatives":[
-             {
-                "name":"Kanboard",
-                "url":"https://kanboard.org/"
-             },
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             }
-          ]
+            {
+               "name":"Kanboard",
+               "url":"https://kanboard.org/"
+            },
+            {
+               "name":"Taigo.io",
+               "url":"https://taiga.io/"
+            },
+            {
+               "name":"Open Project",
+               "url":"https://www.openproject.org/"
+            },
+            {
+               "name":"Loomio",
+               "url":"https://www.loomio.org/"
+            }
+
+         ]
        },
        {
           "name":"skype",
@@ -92,15 +135,23 @@
           ],
 
           "alternatives":[
-             {
-                "name":"jitsi-meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             },
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             }
-          ]
+            {
+               "name":"Jitsi Meet",
+               "url":"https://jitsi.org/jitsi-meet/"
+            },
+            {
+               "name":"Pidgin",
+               "url":"https://alternativeto.net/software/pidgin/"
+            },
+            {
+               "name":"Riot.im",
+               "url":"https://about.riot.im/"
+            },
+            {
+               "name":"Wire",
+               "url":"https://wire.com/en/"
+            }
+         ]
        },
        {
           "name":"google-drive",
@@ -110,12 +161,20 @@
 
           "alternatives":[
              {
-                "name":"seafile",
+                "name":"Next Cloud",
+                "url":"https://nextcloud.com/"
+             },
+             {
+                "name":"SyncThing",
+                "url":"https://syncthing.net/"
+             },
+             {
+                "name":"SeaFile",
                 "url":"https://www.seafile.com/en/home/"
              },
              {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
+                "name":"Jirafeau",
+                "url":"https://jirafeau.net/"
              }
           ]
        },
@@ -126,15 +185,23 @@
           ],
 
           "alternatives":[
-             {
-                "name":"seafile",
-                "url":"https://www.seafile.com/en/home/"
-             },
-             {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
-             }
-          ]
+            {
+               "name":"Next Cloud",
+               "url":"https://nextcloud.com/"
+            },
+            {
+               "name":"SyncThing",
+               "url":"https://syncthing.net/"
+            },
+            {
+               "name":"SeaFile",
+               "url":"https://www.seafile.com/en/home/"
+            },
+            {
+               "name":"Jirafeau",
+               "url":"https://jirafeau.net/"
+            }
+         ]
        },
        {
           "name":"photoshop",
@@ -148,10 +215,104 @@
                 "url":"https://www.gimp.org/"
              },
              {
-                "name":"Jitsi Meet",
-                "url":"https://jitsi.org/jitsi-meet/"
+                "name":"Inkscape",
+                "url":"https://inkscape.org/en/"
+             },
+             {
+                "name":"Drawplus",
+                "url":"http://www.serif.com/drawplus/"
+             },
+             {
+                "name":"Darktable",
+                "url":"https://www.darktable.org/"
              }
           ]
-       }
+       },
+       {
+        "name":"Youtube",
+        "url":[
+           "https://www.youtube.com/"
+        ],
+        
+        "alternatives":[
+            {
+                "name":"Spotify",
+                "url":"https://www.spotify.com"
+             },
+           {
+              "name":"PeerTube",
+              "url":"https://joinpeertube.org/en/home/"
+           },
+           {
+              "name":"Media Goblin",
+              "url":"https://mediagoblin.org/"
+           },
+           {
+              "name":"D-Tube",
+              "url":"https://alternativeto.net/software/dtube/"
+           }
+        ]
+     },
+     {
+        "name":"Apollo",
+        "url":[
+           "http://www.apollo.com/"
+        ],
+
+        "alternatives":[
+          {
+             "name":"Kanboard",
+             "url":"https://kanboard.org/"
+          },
+          {
+             "name":"Taigo.io",
+             "url":"https://taiga.io/"
+          },
+          {
+             "name":"Open Project",
+             "url":"https://www.openproject.org/"
+          },
+          {
+             "name":"Loomio",
+             "url":"https://www.loomio.org/"
+          }
+
+       ]
+     },
+     {
+        "name":"Atollon",
+        "url":[
+           "http://www.apollo.com/"
+        ],
+
+        "alternatives":[
+          {
+             "name":"Kanboard",
+             "url":"https://kanboard.org/"
+          },
+          {
+             "name":"Taigo.io",
+             "url":"https://taiga.io/"
+          },
+          {
+             "name":"Open Project",
+             "url":"https://www.openproject.org/"
+          },
+          {
+             "name":"Loomio",
+             "url":"https://www.loomio.org/"
+          }
+
+       ]
+     }
+
+
+      
+     
+
+
+
+
+
     ]
 }
