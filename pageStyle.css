@@ -1,44 +1,51 @@
-
-
-body {
-    color: #f9917b;
-    background-color: #fcf6ec;
+html, body, .container-table {
+    height: 100%;
 }
 
-.projectInformation {
-    padding: 5px;
-    background-color:#6060601a;
-    border-radius: 15px;
-    text-align: center;
-    height: 250px;
-}
-.projectInformation p{
-    height: 117px;
-    margin: 0 auto;
-
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  
+.logo {
+    display: inline-block;
+    width: 115px !important;
+    margin-left: -40px;
 }
 
-
-.dataApps {
-    background-color:#6060601a;
-    border-radius: 15px;
+.logo-text {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: bottom;
 }
 
-#alternatives{
-    text-align: center;
+.container-logo {
+    padding-bottom: 30px;
+    padding-top: 60px;
 }
 
-a {
-    color:#f9917b;
-    text-decoration: none;
+.container-table {
+    width: 930px;
 }
 
-.apps div.row {
-    margin-top: 5px;
-    margin-bottom: 5px;
+.searchboxContainer {
+    margin-left: 115px;
 }
 
+.searchbox {
+    width: 700px;
+}
+
+section {
+    margin-top: 60px;
+}
+
+td {
+    text-align: left;
+}
+
+.container-github {
+    position: relative;
+    top: -40px;
+    left: 163px;
+}
+
+header {
+    background-color: aliceblue;
+    padding-bottom: 40px;
+}
