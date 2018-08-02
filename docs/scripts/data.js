@@ -15,9 +15,6 @@ function generateApp(softwareList) {
     el.innerHTML=html;
 }
 
-function generateBoth() {
-    generateApp();
-}
 
 //gets software list from server (github)
 fetch('https://raw.githubusercontent.com/Enkelena/free-software-habits/master/alternativeApps.json')
