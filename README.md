@@ -8,7 +8,7 @@ This repo contains  the work that has been done on developing a firefox extensio
 Enkelena presented the project on DebConf'18 in Hsinchu, Taiwan [Video](https://gemmei.ftp.acc.umu.se/pub/debian-meetings/2018/DebConf18/2018-07-31/gsoc-session.webm) - Watch it from 16:20
 
 
-##Implementation
+## Implementation
 
 Mozilla API (Extension <> web-browser API)
 
