@@ -57,14 +57,20 @@ function showNotification(currentURL, betterAlternatives) {
     if (currentURL === 'about') return;
 
     //create message
-    let message = `${betterAlternatives.name} has Open Source alternatives,\n`;
+    let message = `${betterAlternatives.name} has free software alternatives like\n`;
     if (betterAlternatives.alternatives[0] && betterAlternatives.alternatives[0].name) {
-        message = `${message}like ${betterAlternatives.alternatives[0].name}`;
+        message = `${message} ${betterAlternatives.alternatives[0].name}`;
     }
     if (betterAlternatives.alternatives[1] && betterAlternatives.alternatives[1].name) {
-        message = `${message} or ${betterAlternatives.alternatives[1].name}`;
+        message = `${message}, ${betterAlternatives.alternatives[1].name}`;
     }
-    message = `${message}. Click for more!`;
+    if (betterAlternatives.alternatives[1] && betterAlternatives.alternatives[2].name) {
+        message = `${message}, ${betterAlternatives.alternatives[2].name}`;
+    }
+    if (betterAlternatives.alternatives[1] && betterAlternatives.alternatives[3].name) {
+        message = `${message}, ${betterAlternatives.alternatives[3].name}`;
+    }
+    message = `${message}. \n Click for more!`;
 
     //using the id 'software-notification', therefore not creating endless notifications for the user
     browser.notifications
