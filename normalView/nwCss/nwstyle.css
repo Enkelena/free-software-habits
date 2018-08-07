@@ -1,6 +1,6 @@
 
 body {
-	background-color: #fcf6ee;
+	background-color: rgb(237, 238, 238);
 }
 
 p {
@@ -12,7 +12,7 @@ p {
 	font-family: georgia;
 	font-style: italic;
 	font-size: 15px;
-	color:  #f98e78;
+	color:  #337ab7;
 	margin-top:10px;
 	margin-bottom: 10px; 
 }
@@ -33,7 +33,7 @@ button {
 .havealook1 {
 	background-color: #f7f5f5;
 	
-	color:#f98e78; 
+	color:#337ab7; 
 	width: 100px;
 	border-radius: 100px;
 	align-self: center;
@@ -52,12 +52,12 @@ a:hover {
 	padding-left: 55px;
 	padding-bottom:5px;
 	text-decoration: none;
-	color: #f98e78;
+	color: #337ab7;
 }
 
 .pause1 {
 	background-color: #f7f5f5;
-	color:#f98e78;
+	color:#337ab7;
 	width: 100px;
 	border-radius: 80px;
 	align-self: center;
@@ -68,8 +68,9 @@ a:hover {
 }
 
 .help1 {
-	color:#f98e78;
+	color:#337ab7;
 	text-decoration: none;
 	margin:10px 0px 3px 15px;
 	font-size: 11px;
+	margin-bottom:10px;
 }
