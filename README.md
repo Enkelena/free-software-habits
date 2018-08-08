@@ -6,7 +6,7 @@
 <img align="right" width="179" alt="screen shot 2018-07-20 at 18 21 10" src="https://user-images.githubusercontent.com/20709874/43801850-78bbe0ea-9a94-11e8-8fd5-b22bdda08be6.png">
 
 
-This repo contains  the work that has been done on developing a firefox extension called "Free Software Habits", which is the Google Summer of Code project of Enkelena Haxhija under Debian project. The goal as described in GSoC project proposal by [Daniel Pocock](https://danielpocock.com/gsoc-project-beating-cambridge-analytica-at-their-own-game) for the 2018 edition, under Debian's umbrella, is to create more awareness of existing free software, highlight alternatives that otherwise wouldn't be known by the user and change habits into using free software.
+This github [repo](https://github.com/Enkelena/free-software-habits) contains the work that has been done on developing a firefox extension called "Free Software Habits", which is the Google Summer of Code project of Enkelena Haxhija under Debian project. The goal as described in GSoC project proposal by [Daniel Pocock](https://danielpocock.com/gsoc-project-beating-cambridge-analytica-at-their-own-game) for the 2018 edition, under Debian's umbrella, is to create more awareness of existing free software, highlight alternatives that otherwise wouldn't be known by the user and change habits into using free software.
 
 Enkelena presented the project on DebConf'18 in Hsinchu, Taiwan [Video](https://gemmei.ftp.acc.umu.se/pub/debian-meetings/2018/DebConf18/2018-07-31/gsoc-session.webm) - Watch it from 16:20
 
@@ -61,9 +61,9 @@ Currently, the list of recommended software is being hosted on github in a [JSON
 The cards in backlog lane in the [Kanban board (read-only)](https://storm.debian.net/shared/pNYyAAjAgoMbwcaTqQTeJhFWfAx0pNsa1D9IeXJpzAD) show the work to be done and future roadmap.
 
 
-## Work Product
+### Product on Salsa.Debian
 
-A work product package was created on debian.salsa.org for archive purposes, containing project info and a zip file of this repo. [Package on Salsa](https://salsa.debian.org/outreach-team/intern-work-products/tree/master/gsoc/2018/EnkelenaH-guest)
+A work product package was created on debian.salsa.org for archive purposes, containing project info and a zip file with this repo. [Package on Salsa](https://salsa.debian.org/outreach-team/intern-work-products/tree/master/gsoc/2018/EnkelenaH-guest)
 
 ---
 
