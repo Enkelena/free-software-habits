@@ -58,7 +58,7 @@ The weekly reports, containing a summary of the progress made each week, are arc
 
 Currently, the list of recommended software is being hosted on github in a [JSON formatted file](https://github.com/Enkelena/free-software-habits/blob/master/alternativeApps.json). The extension downloads the file from GitHub and filters the list to show the user the specific alternatives to the currently visited app. In the roadmap is the creation of a server + API that will allow the extension to make a call and receive the list of alternative apps. Either integrating with an existing service that returns a list open source software, or maintaining our own database.
 
-The cards in backlog lane in the [Kanban board (read-only)](https://storm.debian.net/shared/pNYyAAjAgoMbwcaTqQTeJhFWfAx0pNsa1D9IeXJpzAD) show the work to be done and future roadmap.
+The cards in backlog lane in the [Kanban board](https://storm.debian.net/shared/pNYyAAjAgoMbwcaTqQTeJhFWfAx0pNsa1D9IeXJpzAD) show the work to be done and future roadmap.
 
 
 ### Product on Salsa.Debian
