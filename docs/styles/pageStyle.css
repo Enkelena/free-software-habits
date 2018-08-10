@@ -20,7 +20,7 @@ html, body, .container-table {
 }
 
 .container-table {
-    width: 930px;
+    width: 860px;
 }
 
 .searchboxContainer {
@@ -46,6 +46,34 @@ td {
 }
 
 header {
-    background-color: aliceblue;
+    background-color:rgb(237, 238, 238);
     padding-bottom: 40px;
+}
+
+footer {
+    background-color:rgb(237, 238, 238);
+}
+
+.text-center {
+    padding-left:70px;
+}
+.about {
+    padding-top:20px;
+}
+.about h4{
+text-align: center;
+}
+
+.contributions {
+    padding-top: 20px; 
+}
+
+.newDev {
+    padding-left:70px;
+    text-align: left;
+    padding-top:20px;
+}
+
+.contributions h4 {
+    text-align: center;
 }
