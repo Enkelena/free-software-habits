@@ -1,128 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Free Software Habits</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="styles/pageStyle.css" rel="stylesheet">
+</head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<body>
 
-    <title>Free Software Habits</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-
-    <!-- Custom fonts for this template -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- Custom styles for this template -->
-    <link href="styles/pageStyle.css" rel="stylesheet">
-
-  </head>
-
-  <body>
-
-    <!-- Masthead -->
-    <header>
-      <div class="container text-center">
-        <div class="row">
-
-          <div class="col-md-10 mx-auto container-logo">
-            <img src="images/fshLogo.gif" class="logo">
-            <h1 class="mb-5 logo-text">Free Software Habits</h1>
-            <span style=" padding-left:15px;" class="fa fa-github"></span> <a href ="https://github.com/Enkelena/free-software-habits">View on Github</a>
-          </div>
-          <div class="col-md-10 mx-auto container-github">
-              <a class="btn btn-block btn-social btn-github">
-                
-              </a>
-            </div>
-          <div class="col-md-10 mx-auto searchboxContainer">
-              <input type="text" class="form-control form-control-lg searchbox" placeholder="Search for alternative apps...">
-          </div>
-        </div>
-      </div>
-    </header>
-
-   
-
-    <!-- Table -->
-    <section>
-        <div class="container text-center2">
-<!-- 
-<a href="#" onclick="toggle_visibility('foo');">Documentation</a>
-<div style=" width:200px;" id="foo">This is foo This is foo This is foo This is foo This is fooThis is foo This is foo This is foo This is foo This is foo</div>
--->
-          <div class="col-md-1">
-            </div>
-            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto container-table">
-                <table class="table table-striped table-list">
-                  <thead>
-                    <tr>
-                        <th>List of Apps - Alternatives</th>
-                        <th></th>
-                    </tr> 
-                  </thead>
-                  <tbody id="tableBody">
-                  </tbody>
-                </table>
-            
-            </div>
-        
-
-      </div>
-    </section>
-  
-  <footer>
-    <div class="row">
-      <div class="col-md-1"> 
-
-    </div>
-      <div class="col-md-3 about">
-        <h4>About</h4>
-        <p>• Free Software habits is a Firefox extension that gives free software alternatives to non-free apps on internet. </br> </br>
-          • Its goal is to create more awareness of existing free software, highlight alternatives that otherwise wouldn't be known by the user and change habits into using free software.</br></br>
-         
-          </p>
-      </div>
-      <div class="col-md-1"> 
-
-        </div>
-      <div class="col-md-3 contributions">
-        <h4>Contributions</h4>
-        <p> • Developing the same extension for Thunderbird is a goal where developers could contribute. </br>
-          • Integrating it with somekind of AI to make the suggestions on speach communicating </br>
-          • Packaging it for Debian
-
-        </p>
-          <p>• People who are not developers can contribute to the project too: </br> On the Json file you can add apps and their alternatives as it is done there, then the extension will immediately use your suggestions for its puprose and also it immediately generates to the web-page</p>
-      </div>
-    
-      <div class="col-md-3 newDev">
-        <h4>New developers</h4>
-       <p> • Debugging extension:</br>
-
-        Clone the repo: </br>
-            git clone <a href="https://github.com/Enkelena/free-software-habits.git">https://github.com/Enkelena/free-software-habits.git</a></br>
-        Open Firefox: </br>
-            Type 'about:debugging' in your address bar to bring up the add-ons page. </br>
-            Click the 'Load Temporary Add-on' button, navigate to the build/manifest.json file and "Open".
-          </p>
-      </div>
-  
+  <!-- Github ribbon -->
+  <div class="github-ribbon">
+    <a class="github-ribbon__link" href="https://github.com/Enkelena/free-software-habits" target="_blank">Project on GitHub</a>
   </div>
 
-  </footer>
+  <header>
+    <div class="text-center">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <img id="fsh-logo" src="images/fshLogo.gif">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <input id="search-bar" type="text" class="form-control form-control-lg" placeholder="Search for alternative apps...">
+          <div id="info-text" class="text-left">
+            <p>This page and search results are part of the
+              <a href="https://github.com/Enkelena/free-software-habits" target="_blank">'Free Software Habits'</a> GSoC18 project.
+              <br/>
+              <span id="info-link">
+                <i class="fa fa-question-circle"></i>
+                Click here for more info.
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-    <script src="scripts/data.js"></script>
+  <!-- Table -->
+  <section>
+    <div class="row col-sm-6 col-sm-offset-3">
+      <div class="container-table">
+        <table class="table table-striped table-list">
+          <thead>
+            <tr>
+              <th width="5%"></th>
+              <th width="25%">Software</th>
+              <th width="55%">Open Source Alternatives</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody" />
+        </table>
+      </div>
+    </div>
+  </section>
 
-  </body>
+  <!-- About box -->
+  <div id="blackout"></div>
+  <section id="about-box">
+      <div id="close-button"><i class="fa fa-window-close" aria-hidden="true"></i></div>
+      <div class="row">
+        <h4>About</h4>
+        <p>• Free Software habits is a Firefox extension that gives free software alternatives to non-free apps on internet.</br>
+          • Its goal is to create more awareness of existing free software, highlight alternatives that otherwise wouldn't be known
+          by the user and change habits into using free software.</br>
+          • The project was built as part of GSoC18 program 
+          <a href="https://github.com/Enkelena/free-software-habits" target="_blank">(source code available on Github)</a>.</br>
+        </p>
+      </div>
+
+      <div class="row">
+        <h4>Contributions</h4>
+        <p> 
+          • Developing the same extension for Thunderbird is one of the goals of the project.</br>
+          • Integrating it with somekind of AI to make the suggestions on speach communicating. </br>
+          • Packaging it for Debian, or submitting it to the Firefox extensions store.</br>
+          • People who are not developers can contribute to the project too: eg. suggesting more open source alternative apps.</br>
+          • Check backlog tasks on the project <a href="https://storm.debian.net/shared/pNYyAAjAgoMbwcaTqQTeJhFWfAx0pNsa1D9IeXJpzAD">Kanban board</a>.
+        </p>
+      </div>
+
+      <div class="row">
+        <h4>New developers</h4>
+        <p> • Clone the repo: </br>
+          <code>git clone</code>
+          <a href="https://github.com/Enkelena/free-software-habits.git">https://github.com/Enkelena/free-software-habits.git</a>
+          </br>
+          • Open Firefox: </br>
+          Type <code>'about:debugging'</code> in your address bar to bring up the add-ons page. </br>
+          Click the 'Load Temporary Add-on' button, navigate to the <code>build/manifest.json</code> file and "Open".</br>
+          • Start coding!
+        </p>
+      </div>
+  </section>
+  <script src="scripts/data.js"></script>
+</body>
 
 </html>
