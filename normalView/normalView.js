@@ -28,5 +28,5 @@ pauseButton.onclick = function(element) {
 
 //open project webpage
  showMoreButton.onclick = function() {
-    window.open('https://github.com/Enkelena/free-software-habits','_blank');
+    window.open('https://enkelena.github.io/free-software-habits/','_blank');
 } 
