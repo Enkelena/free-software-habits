@@ -37,7 +37,7 @@ There is some documentation about the project also. </br>
 
 * Extension is controlled by the user from the default popup (the first blue picture *top right* on this documentation) </br>
 From there user can stop/start extension, see the number of apps, have access to web-page with the list, send feedback. </br>
-< imr src="https://user-images.githubusercontent.com/20709874/44001175-0b64d06e-9e2d-11e8-8e4e-341398befde7.gif"> </br>
+<img src="https://user-images.githubusercontent.com/20709874/44001175-0b64d06e-9e2d-11e8-8e4e-341398befde7.gif"> </br>
 ## Project management
 
 For the managment of the project, we are using a kanban board, hosted on [storm.debian.net](https://storm.debian.net), with weekly reviews of the tasks, create new tasks and closing existing ones.
